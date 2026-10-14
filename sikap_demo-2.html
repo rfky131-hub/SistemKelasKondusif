@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIKAP — Kedisiplinan Kelas</title>
+<style>
+:root{--bg:#f4f7fb;--panel:#fff;--ink:#172033;--muted:#667085;--line:#e4e9f1;--blue:#315efb;--blue2:#eaf0ff;--green:#16845b;--amber:#a96508;--red:#bd3434}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#14213d;color:white;padding:20px max(20px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:13px;background:#315efb;display:grid;place-items:center;font-weight:800;font-size:18px}.brand h1{font-size:19px;margin:0}.brand p{margin:2px 0 0;color:#c6d1e5;font-size:12px}
+.pill{border:1px solid #52617a;border-radius:99px;padding:7px 12px;font-size:12px;color:#e6ecf7}
+main{max-width:1180px;margin:24px auto;padding:0 18px 40px}.notice{background:#fff8e8;border:1px solid #f0d9a6;color:#714a0a;border-radius:12px;padding:12px 15px;margin-bottom:20px;font-size:13px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.tab{border:1px solid var(--line);background:white;color:#445067;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:650}.tab.active{background:var(--blue2);border-color:#b9c9ff;color:#2348d8}
+.view{display:none}.view.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:18px;box-shadow:0 3px 12px #17203305}.stat-label{font-size:13px;color:var(--muted)}.stat-num{font-size:30px;font-weight:800;letter-spacing:-1px;margin:7px 0}.stat-note{font-size:12px;color:var(--muted)}
+.section-title{font-size:18px;margin:0 0 4px}.sub{color:var(--muted);font-size:13px;margin:0 0 16px}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}.bars{display:grid;gap:14px;margin-top:20px}.barrow{display:grid;grid-template-columns:145px 1fr 25px;align-items:center;gap:10px;font-size:13px}.track{height:10px;border-radius:99px;background:#edf0f6;overflow:hidden}.fill{height:100%;background:#5278fb;border-radius:99px}
+.donut-wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.donut{width:120px;height:120px;border-radius:50%;background:conic-gradient(#315efb 0 40%,#e6a23c 40% 70%,#25a77b 70% 100%);position:relative;flex-shrink:0}.donut:after{content:"";position:absolute;inset:22px;background:white;border-radius:50%}.legend{display:grid;gap:9px;font-size:13px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700;color:#3d4960}input,select,textarea{width:100%;padding:11px 12px;border:1px solid #d7deea;border-radius:9px;background:white;color:var(--ink);font:inherit}textarea{min-height:90px;resize:vertical}input:focus,select:focus,textarea:focus{outline:2px solid #c8d4ff;border-color:#7895ff}.btn{border:0;background:var(--blue);color:white;border-radius:9px;padding:11px 15px;font:inherit;font-weight:700;cursor:pointer}.btn.secondary{background:#eef2f8;color:#344054}.btn.green{background:#16845b}.btn.red{background:#fff0f0;color:#a62626;border:1px solid #f3c6c6}.btn.small{padding:7px 10px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.form-footer{grid-column:1/-1;display:flex;justify-content:flex-end;gap:8px;margin-top:2px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.toolbar input{flex:1;min-width:180px}.toolbar select{width:auto;min-width:155px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:#667085;font-weight:700;background:#fafbfe}tr:last-child td{border-bottom:0}.table-wrap{overflow-x:auto}.status{display:inline-block;border-radius:99px;padding:4px 8px;font-size:11px;font-weight:750;white-space:nowrap}.pending{background:#fff3d7;color:#8a5600}.verified{background:#e0f6ec;color:#126b49}.rejected{background:#ffebeb;color:#a12626}.follow{background:#eaf0ff;color:#2949bd}.empty{text-align:center;padding:28px;color:var(--muted)}.muted{color:var(--muted)}.detail{font-size:12px;color:var(--muted);margin-top:5px}
+footer{max-width:1180px;margin:0 auto;padding:0 18px 28px;color:var(--muted);font-size:12px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 20px}}
+@media(max-width:480px){main{margin-top:16px}.grid{gap:9px}.card{padding:14px}.stat-num{font-size:25px}form{grid-template-columns:1fr}.field.full,.form-footer{grid-column:auto}.brand h1{font-size:17px}.barrow{grid-template-columns:90px 1fr 18px;font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">S</div><div><h1>SIKAP <span style="font-weight:400">/ Kedisiplinan Kelas</span></h1><p>Sistem Informasi Kedisiplinan dan Administrasi Pelanggaran</p></div></div>
+ <div class="pill">Mode demo · Data tersimpan di perangkat ini</div>
+</header>
+<main>
+ <div class="notice"><strong>Privasi & keadilan:</strong> catatan baru berstatus menunggu verifikasi. Gunakan data faktual, hindari label atau hinaan, dan jangan bagikan daftar ini ke publik. Demo ini menyimpan data di browser perangkat ini, belum tersinkron antarperangkat.</div>
+ <nav>
+  <button class="tab active" data-view="dashboard">Dashboard</button>
+  <button class="tab" data-view="add">+ Catat kejadian</button>
+  <button class="tab" data-view="records">Daftar catatan</button>
+  <button class="tab" data-view="guide">Panduan & privasi</button>
+ </nav>
+ <section id="dashboard" class="view active">
+  <div class="grid">
+   <div class="card"><div class="stat-label">Total catatan</div><div class="stat-num" id="total">0</div><div class="stat-note">Semua status</div></div>
+   <div class="card"><div class="stat-label">Menunggu verifikasi</div><div class="stat-num" id="pendingCount">0</div><div class="stat-note">Perlu diperiksa</div></div>
+   <div class="card"><div class="stat-label">Terverifikasi</div><div class="stat-num" id="verifiedCount">0</div><div class="stat-note">Sudah diperiksa</div></div>
+   <div class="card"><div class="stat-label">Perlu tindak lanjut</div><div class="stat-num" id="followCount">0</div><div class="stat-note">Belum selesai dibina</div></div>
+  </div>
+  <div class="two">
+   <div class="panel"><h2 class="section-title">Kategori catatan</h2><p class="sub">Berdasarkan catatan yang tersimpan</p><div id="bars" class="bars"><div class="empty">Belum ada data untuk ditampilkan</div></div></div>
+   <div class="panel"><h2 class="section-title">Status verifikasi</h2><p class="sub">Ringkasan status seluruh catatan</p><div id="statusSummary" class="empty">Belum ada data untuk ditampilkan</div></div>
+  </div>
+  <div class="panel" style="margin-top:14px"><h2 class="section-title">Catatan terbaru</h2><p class="sub">Hanya untuk membantu pengelolaan internal</p><div id="recent"></div></div>
+ </section>
+ <section id="add" class="view">
+  <div class="panel"><h2 class="section-title">Catat kejadian</h2><p class="sub">Tuliskan kejadian secara singkat, spesifik, dan berdasarkan fakta yang diketahui.</p>
+   <form id="recordForm">
+    <div class="field"><label for="student">Nama siswa *</label><input id="student" required maxlength="80" placeholder="Nama siswa"></div>
+    <div class="field"><label for="date">Tanggal kejadian *</label><input id="date" type="date" required></div>
+    <div class="field"><label for="category">Kategori *</label><select id="category" required><option value="">Pilih kategori</option><option>Keterlambatan</option><option>Atribut seragam</option><option>Tata tertib kelas</option><option>Tugas sekolah</option><option>Kebersihan kelas</option><option>Lainnya</option></select></div>
+    <div class="field"><label for="place">Lokasi kejadian</label><input id="place" maxlength="80" placeholder="Contoh: ruang kelas"></div>
+    <div class="field full"><label for="description">Deskripsi kejadian berdasarkan fakta *</label><textarea id="description" required maxlength="600" placeholder="Apa yang terjadi? Hindari asumsi atau kata-kata yang menghakimi."></textarea></div>
+    <div class="field"><label for="reporter">Pencatat *</label><input id="reporter" required maxlength="80" placeholder="Nama petugas pencatat"></div>
+    <div class="field"><label for="followup">Tindak lanjut awal</label><select id="followup"><option>Belum dilakukan</option><option>Pengingat secara baik</option><option>Diskusi / pembinaan</option><option>Diteruskan ke wali kelas</option></select></div>
+    <div class="field full"><label for="notes">Catatan tambahan (opsional)</label><textarea id="notes" maxlength="400" placeholder="Informasi relevan tambahan, jika ada"></textarea></div>
+    <div class="form-footer"><button type="reset" class="btn secondary">Kosongkan</button><button type="submit" class="btn">Simpan untuk verifikasi</button></div>
+   </form>
+  </div>
+ </section>
+ <section id="records" class="view">
+  <div class="panel"><h2 class="section-title">Daftar catatan</h2><p class="sub">Gunakan pencarian dan filter untuk menemukan catatan tertentu.</p>
+   <div class="toolbar"><input id="search" placeholder="Cari nama atau deskripsi…"><select id="statusFilter"><option value="">Semua status</option><option>Menunggu verifikasi</option><option>Terverifikasi</option><option>Ditolak</option></select><select id="categoryFilter"><option value="">Semua kategori</option><option>Keterlambatan</option><option>Atribut seragam</option><option>Tata tertib kelas</option><option>Tugas sekolah</option><option>Kebersihan kelas</option><option>Lainnya</option></select></div>
+   <div class="table-wrap"><table><thead><tr><th>Tanggal / siswa</th><th>Kategori & deskripsi</th><th>Status</th><th>Tindakan</th></tr></thead><tbody id="tableBody"></tbody></table></div>
+  </div>
+ </section>
+ <section id="guide" class="view">
+  <div class="panel"><h2 class="section-title">Panduan penggunaan</h2><p class="sub">Praktik pencatatan yang bertanggung jawab</p>
+   <ol><li>Masukkan kejadian yang relevan dengan tata tertib kelas, bukan rumor atau dugaan yang belum diperiksa.</li><li>Gunakan bahasa netral dan catat fakta yang dapat dijelaskan.</li><li>Catatan baru berstatus <b>Menunggu verifikasi</b>. Pemeriksa perlu menilai kelengkapan dan meminta klarifikasi bila dibutuhkan.</li><li>Catatan yang keliru dapat ditolak dengan alasan. Jangan menghapus atau mengubah catatan untuk menyembunyikan riwayat.</li><li>Gunakan hasilnya untuk pembinaan dan evaluasi, bukan mempermalukan siswa atau membuat peringkat.</li></ol>
+   <h3>Catatan penyimpanan</h3><p>Versi demo menggunakan penyimpanan lokal browser (localStorage). Data tidak otomatis muncul di HP atau komputer lain. Untuk pemakaian bersama, sistem perlu backend dan basis data online, login per pengguna, aturan akses di sisi server, serta pencadangan yang aman.</p>
+   <h3>Data demo</h3><p>Gunakan tombol di bawah untuk memasukkan contoh fiktif. Jangan masukkan data pribadi siswa asli ke demo ini sebelum penyimpanan dan hak akses online disiapkan.</p>
+   <div class="actions"><button class="btn" id="demoData">Muat contoh fiktif</button><button class="btn red" id="clearData">Hapus semua data di perangkat ini</button></div>
+  </div>
+ </section>
+</main>
+<footer>SIKAP · Prototipe demonstrasi untuk pengelolaan internal kelas. Bukan pengganti tata tertib atau keputusan sekolah.</footer>
+<script>
+const KEY='sikap_demo_records_v1';
+let records=[];
+try{records=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){records=[]}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const save=()=>{localStorage.setItem(KEY,JSON.stringify(records));render()};
+const statusClass=s=>s==='Terverifikasi'?'verified':s==='Ditolak'?'rejected':'pending';
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===b.dataset.view));if(b.dataset.view==='records')renderTable()}));
+$('date').value=new Date().toLocaleDateString('en-CA');
+$('recordForm').addEventListener('submit',e=>{
+ e.preventDefault();
+ records.unshift({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),student:$('student').value.trim(),date:$('date').value,category:$('category').value,place:$('place').value.trim(),description:$('description').value.trim(),reporter:$('reporter').value.trim(),followup:$('followup').value,notes:$('notes').value.trim(),status:'Menunggu verifikasi',createdAt:new Date().toISOString(),decision:''});
+ save();e.target.reset();$('date').value=new Date().toLocaleDateString('en-CA');document.querySelector('[data-view="records"]').click();alert('Catatan disimpan dengan status Menunggu verifikasi.');
+});
+function render(){
+ $('total').textContent=records.length;
+ $('pendingCount').textContent=records.filter(r=>r.status==='Menunggu verifikasi').length;
+ $('verifiedCount').textContent=records.filter(r=>r.status==='Terverifikasi').length;
+ $('followCount').textContent=records.filter(r=>r.status==='Terverifikasi'&&!['Pembinaan selesai','Tidak diperlukan'].includes(r.followup)).length;
+ const cats={};records.forEach(r=>cats[r.category]=(cats[r.category]||0)+1);
+ const max=Math.max(1,...Object.values(cats));
+ $('bars').innerHTML=Object.keys(cats).length?Object.entries(cats).sort((a,b)=>b[1]-a[1]).map(([c,n])=>`<div class="barrow"><span>${esc(c)}</span><div class="track"><div class="fill" style="width:${n/max*100}%"></div></div><b>${n}</b></div>`).join(''):'<div class="empty">Belum ada data untuk ditampilkan</div>';
+ const p=records.filter(r=>r.status==='Menunggu verifikasi').length,v=records.filter(r=>r.status==='Terverifikasi').length,x=records.filter(r=>r.status==='Ditolak').length,total=records.length||1;
+ $('statusSummary').innerHTML=records.length?`<div class="donut-wrap"><div class="donut" style="background:conic-gradient(#e6a23c 0 ${p/total*100}%,#25a77b ${p/total*100}% ${(p+v)/total*100}%,#e35c5c ${(p+v)/total*100}% 100%)"></div><div class="legend"><div><span class="dot" style="background:#e6a23c"></span>Menunggu: <b>${p}</b></div><div><span class="dot" style="background:#25a77b"></span>Terverifikasi: <b>${v}</b></div><div><span class="dot" style="background:#e35c5c"></span>Ditolak: <b>${x}</b></div></div></div>`:'Belum ada data untuk ditampilkan';
+ $('recent').innerHTML=records.length?`<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Siswa</th><th>Kategori</th><th>Status</th></tr></thead><tbody>${records.slice(0,5).map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.student)}</td><td>${esc(r.category)}</td><td><span class="status ${statusClass(r.status)}">${esc(r.status)}</span></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">Belum ada catatan. Mulai dari menu “Catat kejadian”.</div>';
+ renderTable();
+}
+function renderTable(){
+ const q=($('search').value||'').toLowerCase(),s=$('statusFilter').value,c=$('categoryFilter').value;
+ const list=records.filter(r=>(!q||(r.student+' '+r.description+' '+r.reporter).toLowerCase().includes(q))&&(!s||r.status===s)&&(!c||r.category===c));
+ $('tableBody').innerHTML=list.length?list.map(r=>`<tr><td><b>${esc(r.date)}</b><div>${esc(r.student)}</div><div class="detail">Pencatat: ${esc(r.reporter)}</div></td><td><b>${esc(r.category)}</b><div>${esc(r.description)}</div><div class="detail">${esc(r.place||'Lokasi tidak dicatat')}</div>${r.notes?`<div class="detail">Catatan: ${esc(r.notes)}</div>`:''}</td><td><span class="status ${statusClass(r.status)}">${esc(r.status)}</span><div class="detail">${esc(r.decision)}</div><div class="detail">Tindak lanjut: ${esc(r.followup)}</div></td><td><div class="actions">${r.status==='Menunggu verifikasi'?`<button class="btn green small" onclick="verifyRecord('${r.id}')">Verifikasi</button><button class="btn red small" onclick="rejectRecord('${r.id}')">Tolak</button>`:''}<button class="btn secondary small" onclick="editRecord('${r.id}')">Edit</button><button class="btn red small" onclick="deleteRecord('${r.id}')">Hapus</button></div></td></tr>`).join(''):'<tr><td colspan="4" class="empty">Tidak ada catatan yang cocok.</td></tr>';
+}
+window.verifyRecord=id=>{const r=records.find(x=>x.id===id);if(!r)return;const reason=prompt('Nama pemeriksa dan catatan verifikasi (contoh: diperiksa oleh wali kelas)');if(reason===null||!reason.trim())return alert('Verifikasi dibatalkan. Isi identitas pemeriksa dan catatan singkat.');r.status='Terverifikasi';r.decision='Diperiksa: '+reason.trim();save()};
+window.rejectRecord=id=>{const r=records.find(x=>x.id===id);if(!r)return;const reason=prompt('Tuliskan alasan penolakan atau koreksi:');if(!reason||!reason.trim())return alert('Alasan diperlukan. Catatan tidak diubah.');r.status='Ditolak';r.decision='Alasan: '+reason.trim();save()};
+window.deleteRecord=id=>{const r=records.find(x=>x.id===id);if(!r)return;if(!confirm('Hapus catatan ini dari browser perangkat ini? Pastikan tindakan ini sesuai aturan pencatatan kelas.'))return;records=records.filter(x=>x.id!==id);save()};
+window.editRecord=id=>{const r=records.find(x=>x.id===id);if(!r)return;const d=prompt('Edit deskripsi kejadian:',r.description);if(d===null)return;if(!d.trim())return alert('Deskripsi tidak boleh kosong.');r.description=d.trim();r.status='Menunggu verifikasi';r.decision='Catatan diedit; perlu diverifikasi ulang';save()};
+['search','statusFilter','categoryFilter'].forEach(id=>$(id).addEventListener(id==='search'?'input':'change',renderTable));
+$('demoData').addEventListener('click',()=>{if(!confirm('Tambahkan contoh fiktif?'))return;const today=new Date().toLocaleDateString('en-CA');records.unshift({id:'demo1',student:'Contoh Siswa A (fiktif)',date:today,category:'Keterlambatan',place:'Gerbang sekolah',description:'Contoh fiktif: tercatat tiba setelah bel masuk.',reporter:'Petugas Demo',followup:'Pengingat secara baik',notes:'Data demonstrasi, bukan kejadian nyata.',status:'Menunggu verifikasi',createdAt:new Date().toISOString(),decision:''},{id:'demo2',student:'Contoh Siswa B (fiktif)',date:today,category:'Kebersihan kelas',place:'Ruang kelas',description:'Contoh fiktif: area tugas piket belum dibersihkan saat pemeriksaan.',reporter:'Petugas Demo',followup:'Diskusi / pembinaan',notes:'Data demonstrasi, bukan kejadian nyata.',status:'Terverifikasi',createdAt:new Date().toISOString(),decision:'Diperiksa: Guru Demo (fiktif)'});save();alert('Contoh fiktif ditambahkan.')});
+$('clearData').addEventListener('click',()=>{if(!confirm('Hapus seluruh catatan demo dari browser perangkat ini? Tindakan ini tidak dapat dibatalkan.'))return;records=[];save()});
+render();
+</script>
+</body>
+</html>
